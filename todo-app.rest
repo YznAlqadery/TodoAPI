@@ -1,0 +1,19 @@
+// Homepage of the website
+### GET /
+GET http://localhost:8000
+
+
+// User Registration
+### POST /auth/register 
+POST http://localhost:8000/auth/register
+Content-Type: application/json
+
+{
+    "username":"Yazan",
+    "password":"12345678"
+}
+
+// User Login
+### POST /auth/login
+POST http://localhost:8000/auth/login
+Content-Type: application/json
