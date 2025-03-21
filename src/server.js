@@ -1,6 +1,8 @@
 import express from "express";
 import path, { dirname } from "path";
 import { fileURLToPath } from "url";
+import authRoutes from "./routes/authRoutes.js";
+import todoRoutes from "./routes/todoRoutes.js";
 
 const app = express();
 // If there a PORT value in the environment, use it, otherwise use 8000
@@ -23,6 +25,14 @@ app.use(express.static(path.join(__dirname, "../public")));
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
+
+// Routes for the Authentication API (endpoints)
+app.use("/auth", authRoutes);
+
+// Routes for the Todo API (endpoints)
+app.use("/todos", todoRoutes);
+
+// Start the server and listen for requests
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
